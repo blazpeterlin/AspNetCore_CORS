@@ -44,9 +44,11 @@ namespace Backend
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+            }      
+            else
+            {
+                app.UseHttpsRedirection();
             }
-
-            app.UseHttpsRedirection();
 
             app.UseCors();
             app.UseAuthentication();
