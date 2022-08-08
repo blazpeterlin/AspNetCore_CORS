@@ -19,7 +19,7 @@ namespace Backend.Controllers
         [HttpGet(Name = "GetUserName")]
         public string Get()
         {
-            string userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            string userId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Name).Value;
             return userId;
         }
     }

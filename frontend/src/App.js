@@ -16,7 +16,7 @@ export default class App extends Component {
     static renderForecastsTable(forecasts, user) {
         return (
             <div>
-                <div>{user}</div>
+                <div style={{fontSize: '2em'}}>{user}</div>
                 <table className='table table-striped' aria-labelledby="tabelLabel">
                     <thead>
                         <tr>
@@ -58,12 +58,12 @@ export default class App extends Component {
     async populateWeatherData() {
         const response = await fetch('/api/weatherforecast', { method: 'GET', credentials: 'include' });
         const data = await response.json();
-        this.setState({ forecasts: data, loading: false });
+        this.setState({ forecasts: data, loading: false, user: this.state.user });
     }
 
     async populateUserName() {
         const response = await fetch('api/user', { method: 'GET', credentials: 'include' });
-        const data = await response.json();
+        const data = await response.text();
         this.setState({ user: data });
     }
     
