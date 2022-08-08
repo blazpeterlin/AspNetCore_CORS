@@ -18,7 +18,7 @@ module.exports = function (app) {
     const appProxy = createProxyMiddleware(
         "/api",
         {
-            target: 'http://localhost:32817', // IIS express http port
+            target: 'http://localhost:5147', // IIS express http port
             secure: false,
             changeOrigin: true,
             agent: keepaliveAgent,
